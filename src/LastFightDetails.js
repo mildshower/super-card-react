@@ -6,8 +6,9 @@ const LastFightDetails = ({
   looser,
   winnerCard,
   looserCard,
+  hasWon,
 }) => {
-  return <p>Last Fight Happened</p>;
+  return <p>Last Fight Happened and I {hasWon ? "Won" : "lost"}</p>;
 };
 
 export default LastFightDetails;

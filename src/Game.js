@@ -42,7 +42,6 @@ const Game = () => {
     ownCard,
   } = ownDetails;
 
-  console.log(ownCard);
   return (
     <div>
       <PlayersNames {...ownDetails.names} />
