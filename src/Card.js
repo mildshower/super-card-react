@@ -12,6 +12,7 @@ const Card = ({
   weight,
   img,
   onFight,
+  isPlayable,
 }) => {
   return (
     <div>
