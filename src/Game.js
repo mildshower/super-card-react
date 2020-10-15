@@ -9,12 +9,10 @@ const PlayersNames = ({ own, opponent }) => {
 
 const Game = () => {
   const [ownDetails, setOwnDetails] = useState(null);
-  const [playersNames, setPlayersNames] = useState(null);
   const ref = useRef(null);
 
   useEffect(() => {
     GameAPI.ownInfo().then(setOwnDetails);
-    GameAPI.playersNames().then(setPlayersNames);
   }, []);
 
   const fight = (trait) => {
@@ -45,11 +43,7 @@ const Game = () => {
 
   return (
     <div>
-      {playersNames === null ? (
-        <p>Loading Player Names</p>
-      ) : (
-        <PlayersNames {...playersNames} />
-      )}
+      <PlayersNames {...ownDetails.names} />
       <p>{`My Cards: ${primaryCardsCount + secondaryCardsCount}`}</p>
       <p>{`${isTurn ? "Your" : "Opponent's"} turn`}</p>
       {isTurn && <Card {...topCard} onFight={fight} />}

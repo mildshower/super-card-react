@@ -8,8 +8,6 @@ const join = (pName, gameId) =>
 
 const ownInfo = () => fetch("/game/playerDetails").then((r) => r.json());
 
-const playersNames = () => fetch("/game/playersNames").then((r) => r.json());
-
 const fight = (trait) => fetch(`/game/fight?trait=${trait}`);
 
-export default { host, isGameStarted, join, ownInfo, playersNames, fight };
+export default { host, isGameStarted, join, ownInfo, fight };
