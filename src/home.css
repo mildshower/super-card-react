@@ -1,0 +1,79 @@
+.centerBox {
+  width: 22vw;
+  background: rgba(255, 255, 255, 0.4);
+  margin: 40vh 0 0 55vw;
+  padding: 15px 10px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  border-radius: 3px;
+  color: rgb(1, 13, 36);
+}
+
+.nameField {
+  height: 40px;
+  width: 250px;
+  font-size: 27px;
+  outline: none;
+  padding: auto 8px;
+  color: rgba(3, 28, 74);
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+}
+
+.nameField::placeholder {
+  color: rgba(3, 28, 74, 0.4);
+}
+
+.nameLabel {
+  font-size: 30px;
+  margin: 20px 0;
+  color: rgb(2, 20, 53);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  /* width: 90%; */
+  margin: 30px 0;
+}
+
+.actionButton {
+  color: rgba(3, 28, 74);
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px 15px;
+  height: 20px;
+  border: 2px solid rgba(3, 28, 74);
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.actionButton:hover {
+  color: rgb(230, 230, 230);
+  background: rgba(3, 28, 74);
+}
+
+.joinBox {
+  display: flex;
+}
+
+.gameIdInput {
+  width: 35px;
+  margin: 0 0 0 40px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  outline: none;
+  font-size: 25px;
+  color: rgba(3, 28, 74);
+}
+
+.message {
+  font-size: 20px;
+}
+
+.gameId {
+  font-size: 30px;
+}

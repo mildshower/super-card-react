@@ -42,13 +42,15 @@ const Game = () => {
     ownCard,
   } = ownDetails;
 
+  console.log(ownDetails);
+
   return (
     <div>
       <PlayersNames {...ownDetails.names} />
       <p>{`My Cards: ${primaryCardsCount + secondaryCardsCount}`}</p>
       <p>{`${isTurn ? "Your" : "Opponent's"} turn`}</p>
       <p>My Card</p>
-      {isTurn && <Card {...currCard} onFight={fight} playable={isTurn} />}
+      <Card {...ownCard} onFight={fight} playable={isTurn} />
       {lastFightDetails && <LastFightDetails {...lastFightDetails} />}
     </div>
   );

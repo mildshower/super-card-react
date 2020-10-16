@@ -13,11 +13,17 @@ const JoinPage = () => {
   }, []);
 
   if (joinStatus === null) {
-    return <p>{`Trying to join game ${gameId}`}</p>;
+    return (
+      <div className="centerBox">
+        <p>{`Trying to join game ${gameId}`}</p>
+      </div>
+    );
   }
 
   return joinStatus.error ? (
-    <p>{`Can't Join, as ${joinStatus.error}`}</p>
+    <div className="centerBox">
+      <p className="message">{joinStatus.error}</p>
+    </div>
   ) : (
     <Redirect to={`/game`} />
   );

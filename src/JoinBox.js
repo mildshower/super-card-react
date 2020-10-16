@@ -5,10 +5,14 @@ const JoinBox = ({ pName }) => {
   const [gameId, setGameId] = useState("");
 
   return (
-    <div>
-      <input value={gameId} onChange={(e) => setGameId(e.target.value)}></input>
-      <Link to={`/join/${gameId}?pName=${pName}`}>
-        <p>Join</p>
+    <div className="joinBox">
+      <input
+        className="gameIdInput"
+        value={gameId}
+        onChange={(e) => setGameId(e.target.value)}
+      ></input>
+      <Link className="actionButton" to={`/join/${gameId}?pName=${pName}`}>
+        <span>Join</span>
       </Link>
     </div>
   );

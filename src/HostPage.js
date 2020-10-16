@@ -25,14 +25,15 @@ const HostPage = () => {
     }
   }, [hostDetails]);
 
-  if (hostDetails === null) {
-    return <p>Hosting...</p>;
-  }
-
   return isGameStarted ? (
     <Redirect to={`/game`} />
   ) : (
-    <p>{`Waiting for other Player to join. Game Id: ${hostDetails.gameId}`}</p>
+    <div className="centerBox">
+      <p className="message">
+        {hostDetails ? `Waiting for Opponent..` : `Hosting`}
+      </p>
+      {hostDetails && <p className="gameId">GAME ID: {hostDetails.gameId}</p>}
+    </div>
   );
 };
 
