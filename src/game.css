@@ -1,0 +1,52 @@
+.gameContainer {
+  width: 98vw;
+  height: 96vh;
+  border: 1px solid white;
+  display: flex;
+  flex-flow: row-reverse;
+}
+
+.status {
+  width: 300px;
+  border-left: 1px solid white;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.playerDetails {
+  height: 50%;
+  /* border: 1px solid white; */
+  display: flex;
+  align-items: center;
+  flex-flow: row-reverse;
+}
+
+.cardsCount {
+  background: rgba(255, 255, 255, 0.4);
+  color: rgb(1, 13, 36);
+  font-size: 25px;
+  width: 120px;
+  text-align: center;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  margin: 60px;
+}
+
+.pName {
+  color: white;
+  width: 150px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 200;
+  margin: 0 40px;
+}
+
+.turn {
+  color: white;
+  font-size: 22px;
+  font-weight: 200;
+}

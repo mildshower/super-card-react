@@ -1,10 +1,38 @@
 import React, { useEffect, useRef, useState } from "react";
 import GameAPI from "./GameAPI";
-import Card from "./Card";
+import Card, { NoCard } from "./Card";
 import LastFightDetails from "./LastFightDetails";
+import "./game.css";
 
-const PlayersNames = ({ own, opponent }) => {
-  return <h4>{`Me: ${own}, Opponent: ${opponent}`}</h4>;
+const Status = ({ lastFightDetails, isOwnTurn }) => {
+  return (
+    <div className="status">
+      <LastFightDetails {...lastFightDetails} />T{" "}
+      <p className="turn">{isOwnTurn ? "Your" : "Opponent's"} Turn</p>
+    </div>
+  );
+};
+
+const PlayerDetail = ({
+  topCard,
+  currDeck,
+  comingDeck,
+  name,
+  onFight,
+  isMe,
+  isTurn,
+}) => {
+  return (
+    <div className="playerDetails">
+      <span className="cardsCount">{`Cards: ${currDeck + comingDeck}`}</span>
+      {topCard ? (
+        <Card {...topCard} onFight={onFight} isPlayable={isMe && isTurn} />
+      ) : (
+        <NoCard />
+      )}
+      <span className="pName">{`${isMe ? "You" : "Opponent"} (${name})`}</span>
+    </div>
+  );
 };
 
 const Game = () => {
@@ -31,22 +59,39 @@ const Game = () => {
     return () => clearInterval(ref.current);
   }, [ownDetails && ownDetails.isOwnTurn]);
 
-  if (ownDetails === null) return <p>Loading Game</p>;
+  if (ownDetails === null)
+    return (
+      <div className="centerBox">
+        <p className="message">Loading..</p>
+      </div>
+    );
 
-  if (ownDetails.error) return <p>could not load game</p>;
+  if (ownDetails.error)
+    return (
+      <div className="centerBox">
+        <p className="message">Could not load game</p>
+      </div>
+    );
 
   const { myself, opponent, isOwnTurn, lastFightDetails } = ownDetails;
 
-  console.log(ownDetails);
-
   return (
-    <div>
-      <PlayersNames own={myself.name} opponent={opponent.name} />
-      <p>{`My Cards: ${myself.currDeck + myself.comingDeck}`}</p>
-      <p>{`${isOwnTurn ? "Your" : "Opponent's"} turn`}</p>
-      <p>My Card</p>
-      <Card {...myself.topCard} onFight={fight} playable={isOwnTurn} />
-      {lastFightDetails && <LastFightDetails {...lastFightDetails} />}
+    <div className="gameContainer">
+      <Status lastFightDetails={lastFightDetails} isOwnTurn={isOwnTurn} />
+      <div>
+        <PlayerDetail
+          {...opponent}
+          isMe={false}
+          onFight={fight}
+          isTurn={isOwnTurn}
+        />
+        <PlayerDetail
+          {...myself}
+          isMe={true}
+          onFight={fight}
+          isTurn={isOwnTurn}
+        />
+      </div>
     </div>
   );
 };
