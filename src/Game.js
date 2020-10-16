@@ -20,37 +20,32 @@ const Game = () => {
   };
 
   useEffect(() => {
-    if (ownDetails === null || ownDetails.isTurn) {
+    if (ownDetails === null || ownDetails.isOwnTurn) {
       return clearInterval(ref.current);
     }
 
     ref.current = setInterval(() => {
       GameAPI.ownInfo().then(setOwnDetails);
     }, 1000);
-  }, [ownDetails && ownDetails.isTurn]);
+
+    return () => clearInterval(ref.current);
+  }, [ownDetails && ownDetails.isOwnTurn]);
 
   if (ownDetails === null) return <p>Loading Game</p>;
 
   if (ownDetails.error) return <p>could not load game</p>;
 
-  const {
-    primaryCardsCount,
-    secondaryCardsCount,
-    isTurn,
-    lastFightDetails,
-    currCard,
-    ownCard,
-  } = ownDetails;
+  const { myself, opponent, isOwnTurn, lastFightDetails } = ownDetails;
 
   console.log(ownDetails);
 
   return (
     <div>
-      <PlayersNames {...ownDetails.names} />
-      <p>{`My Cards: ${primaryCardsCount + secondaryCardsCount}`}</p>
-      <p>{`${isTurn ? "Your" : "Opponent's"} turn`}</p>
+      <PlayersNames own={myself.name} opponent={opponent.name} />
+      <p>{`My Cards: ${myself.currDeck + myself.comingDeck}`}</p>
+      <p>{`${isOwnTurn ? "Your" : "Opponent's"} turn`}</p>
       <p>My Card</p>
-      <Card {...ownCard} onFight={fight} playable={isTurn} />
+      <Card {...myself.topCard} onFight={fight} playable={isOwnTurn} />
       {lastFightDetails && <LastFightDetails {...lastFightDetails} />}
     </div>
   );
