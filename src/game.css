@@ -1,7 +1,6 @@
 .gameContainer {
   width: 98vw;
   height: 96vh;
-  border: 1px solid white;
   display: flex;
   flex-flow: row-reverse;
 }

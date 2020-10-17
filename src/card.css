@@ -1,5 +1,5 @@
 .card {
-  background: white;
+  background: radial-gradient(rgb(204, 9, 49) 5%, rgb(253, 236, 236) 80%);
   width: 240px;
   display: flex;
   align-items: center;
