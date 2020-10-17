@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Prompt, Redirect } from "react-router-dom";
 import useQuery from "./useQuery";
 import GameAPI from "./GameAPI";
 
@@ -35,6 +35,7 @@ const HostPage = () => {
     <Redirect to={`/game`} />
   ) : (
     <div className="centerBox">
+      <Prompt message="Do you want to leave the game ?" />
       <p className="message">
         {gameDetails ? `Waiting for Opponent..` : `Hosting`}
       </p>

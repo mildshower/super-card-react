@@ -9,11 +9,13 @@ import Home from "./Home";
 import HostPage from "./HostPage";
 import JoinPage from "./JoinPage";
 import Game from "./Game";
+import Icon from "./Icon";
 import "./app.css";
 
 function App() {
   return (
     <Router>
+      <Icon />
       <Switch>
         <Route path="/index">
           <Redirect from="/index" to="/" exact />

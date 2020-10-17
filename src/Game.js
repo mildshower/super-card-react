@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Prompt } from "react-router-dom";
 import GameAPI from "./GameAPI";
 import Status from "./Status";
 import PlayerDetail from "./PlayerDetail";
@@ -49,6 +50,7 @@ const Game = () => {
 
   return (
     <div className="gameContainer">
+      <Prompt message="Do you want to leave the game ?" />
       <Status lastFight={lastFight} isOwnTurn={isOwnTurn} />
       <div>
         <PlayerDetail

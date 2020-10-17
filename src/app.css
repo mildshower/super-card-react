@@ -4,3 +4,26 @@ body {
   background-size: 100vw 100vh;
   font-family: sans-serif;
 }
+
+.iconImg {
+  height: 80px;
+}
+
+.iconBox {
+  position: fixed;
+  left: 0;
+  top: 0;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.iconBox:hover {
+  transform: scale(1.02);
+}
+
+.gameName {
+  font-size: 30px;
+  color: rgb(1, 6, 15);
+  font-weight: 900;
+}
