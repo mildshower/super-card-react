@@ -4,16 +4,14 @@ import "./lastFight.css";
 const LastFightDetails = ({
   trait,
   winner,
-  looser,
   winnerCard,
   looserCard,
   hasWon,
 }) => {
-  // return <p>Last Fight Happened and I {hasWon ? "Won" : "lost"}</p>;
   return (
     <div className="lastFight">
       <h3>Last Fight</h3>
-      {!winner ? (
+      {!trait ? (
         <p className="fightMsg">No Fights Happened</p>
       ) : (
         <React.Fragment>
@@ -29,7 +27,9 @@ const LastFightDetails = ({
             </div>
           </div>
           <p className="fightMsg">Trait: {trait.toUpperCase()}</p>
-          <p className="fightMsg">You {hasWon ? "won" : "lost"}</p>
+          <p className={`fightMsg ${hasWon ? "winMsg" : "loseMsg"}`}>
+            You {hasWon ? "won" : "lost"}
+          </p>
         </React.Fragment>
       )}
     </div>

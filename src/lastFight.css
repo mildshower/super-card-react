@@ -34,3 +34,15 @@
   text-align: center;
   font-weight: 400;
 }
+
+.winMsg {
+  color: rgb(16, 167, 16);
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.loseMsg {
+  color: rgb(170, 46, 46);
+  font-weight: 800;
+  font-size: 20px;
+}
